@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="Index.css" />
+    <title>Title</title>
+  </head>
+  <body>
+    <header>
+      <nav></nav>
+    </header>
+    <section>
+      <h1>Select to options to get Recommendation</h1>
+      <form action="{% url 'prediction' %}" method="post">
+        {% csrf_token %}
+        <div>
+          <label>
+            Male
+            <input type="radio" name="gender" value="1" />
+          </label>
+          <label>
+            Female
+            <input type="radio" name="gender" value="0" />
+          </label>
+        </div>
+        <div>
+          <label>
+            Age
+            <input type="number" name="age" placeholder="eg. 19" />
+          </label>
+        </div>
+        <input type="submit" value="submit and get recommendation" />
+      </form>
+      <div class="output">
+        <h2>Prediction= {{prediction}}</h2>
+      </div>
+      <div class="output">
+        <h3>Age= {{settings.age}}</h3>
+        <h3>Gender= {{settings.gender}}</h3>
+    </section>
+    <script src=""></script>
+  </body>
+</html>
